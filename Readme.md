@@ -39,29 +39,11 @@
    ```
 </details>
 
-### ステップ3: AI LLMクライアントを設定
+<br>
 
-<details open>
-<summary><span style="font-size: 1.1em; font-weight: bold;">オプション1: Unityエディターを使用して設定</span></summary>
-
-1. Unityエディターを開く
-2. Tools > MCP Unity > Server Windowに移動
-3. 以下の画像のようにAI LLMクライアントの"Configure"ボタンをクリック
-
-![image](https://github.com/user-attachments/assets/8d286e83-da60-40fa-bd6c-5de9a77c1820)
-
-4. 表示されるポップアップで設定インストールを確認
-
-![image](https://github.com/user-attachments/assets/b1f05d33-3694-4256-a57b-8556005021ba)
-
-</details>
-
-<details>
-<summary><span style="font-size: 1.1em; font-weight: bold;">オプション2: 手動設定</span></summary>
+### ステップ2: 手動設定
 
 AIクライアントのMCP設定ファイル（例：Claude Desktopのclaude_desktop_config.json）を開き、以下のテキストをコピー：
-
-> `ABSOLUTE/PATH/TO`をMCP Unityインストールの絶対パスに置き換えるか、UnityエディターMCPサーバーウィンドウ（Tools > MCP Unity > Server Window）からテキストをコピー
 
 ```json
 {
@@ -69,14 +51,16 @@ AIクライアントのMCP設定ファイル（例：Claude Desktopのclaude_des
     "mcp-unity": {
       "command": "node",
       "args": [
-        "ABSOLUTE/PATH/TO/mcp-unity/Server/build/index.js"
-      ]
+        "ABSOLUTE/PATH/TO/Server/build/index.js"
+      ],
+       "env": {
+          "UNITY_HOST" : "YOUR_IP_ADDRESS",
+          "UNITY_PORT" : "YOUR_PORT"
+       }
     }
   }
 }
 ```
-
-</details>
 
 ## <a name="start-server"></a>サーバーの起動
 
